@@ -1,0 +1,9 @@
+.history/
+.storybook/
+coverage/
+dist/
+docs/
+es/
+lib/
+jest.config.js
+webpack.config.js
