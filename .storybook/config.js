@@ -1,8 +1,11 @@
 import { configure } from '@storybook/react'
 
-function loadStories() {
-  require('../stories/index.stories.js')
-  // You can require as many stories as you need.
+import { map } from 'ramda'
+
+const req = require.context('../src/', true, /\.stories\.js$/)
+
+function loadStories () {
+  map(filename => req(filename), req.keys())
 }
 
 configure(loadStories, module)
