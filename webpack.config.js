@@ -27,15 +27,15 @@ const minimizeTrait = {
   },
 }
 
-const cui = {
+const toolkit = {
   mode: 'production',
   entry: './src/index.js',
   target: 'node',
   output: {
     path: path.resolve('./dist'),
-    filename: 'CUI.node.js',
+    filename: 'centripetal-toolkit.node.js',
     libraryTarget: 'umd',
-    library: 'CUI',
+    library: 'centripetal-toolkit',
   },
   externals: {
     ramda: 'ramda',
@@ -70,16 +70,16 @@ const cui = {
   },
 }
 
-const cuiMin = Object.assign(
+const toolkitMin = Object.assign(
   {
     mode: 'production',
     entry: './src/index.js',
     target: 'node',
     output: {
       path: path.resolve('./dist'),
-      filename: 'CUI.node.min.js',
+      filename: 'centripetal-toolkit.node.min.js',
       libraryTarget: 'umd',
-      library: 'CUI',
+      library: 'centripetal-toolkit',
     },
     externals: {
       ramda: 'ramda',
@@ -116,15 +116,15 @@ const cuiMin = Object.assign(
   minimizeTrait
 )
 
-const cuiWeb = {
+const toolkitWeb = {
   mode: 'production',
   entry: './src/index.js',
   target: 'web',
   output: {
     path: path.resolve('./dist'),
-    filename: 'CUI.web.js',
+    filename: 'centripetal-toolkit.web.js',
     libraryTarget: 'umd',
-    library: 'CUI',
+    library: 'centripetal-toolkit',
   },
   externals: {
     ramda: 'R',
@@ -164,16 +164,16 @@ const cuiWeb = {
   },
 }
 
-const cuiWebMin = Object.assign(
+const toolkitWebMin = Object.assign(
   {
     mode: 'production',
     entry: './src/index.js',
     target: 'web',
     output: {
       path: path.resolve('./dist'),
-      filename: 'CUI.web.min.js',
+      filename: 'centripetal-toolkit.web.min.js',
       libraryTarget: 'umd',
-      library: 'CUI',
+      library: 'centripetal-toolkit',
     },
     externals: {
       ramda: 'R',
@@ -216,8 +216,8 @@ const cuiWebMin = Object.assign(
 )
 
 module.exports = [
-  cui,
-  cuiMin,
-  cuiWeb,
-  cuiWebMin,
+  toolkit,
+  toolkitMin,
+  toolkitWeb,
+  toolkitWebMin,
 ]

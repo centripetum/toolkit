@@ -1,12 +1,19 @@
 import * as React from 'react'
-
-import TextField from './'
 import { render } from 'react-testing-library'
 
-describe('TextField', () => {
-  it('works', () => {
-    const { container } = render(<TextField />)
+import Field from './'
 
-    expect(container.firstChild).toMatchSnapshot()
+describe('Field', () => {
+  it('works', () => {
+    const { container } = render(
+      <Field
+        defaultValue='Everything and log'
+        labelText='Message'
+        name='message'
+        onSave={() => null}
+      />
+    )
+
+    expect(container).toMatchSnapshot()
   })
 })

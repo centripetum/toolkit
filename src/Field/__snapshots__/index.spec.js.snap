@@ -1,7 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TextField works 1`] = `
-<input
-  type="text"
-/>
+exports[`Field works 1`] = `
+<div>
+  <label
+    class="sc-htpNat iKBgbH"
+    for="message"
+  >
+    Message
+  </label>
+  <input
+    class="sc-bwzfXH lfkgtm"
+    name="message"
+    type="text"
+    value="Everything and log"
+  />
+  <button
+    class="sc-bdVaJa dxWZKA"
+    disabled=""
+  >
+    Undo
+  </button>
+  <button
+    class="sc-bdVaJa dxWZKA"
+    disabled=""
+  >
+    Redo
+  </button>
+  <button
+    class="sc-bdVaJa jgAgQk"
+  >
+    Clear
+  </button>
+  <button
+    class="sc-bdVaJa dxWZKA"
+    disabled=""
+  >
+    Save
+  </button>
+  <button
+    class="sc-bdVaJa dxWZKA"
+    disabled=""
+  >
+    Reset
+  </button>
+</div>
 `;
