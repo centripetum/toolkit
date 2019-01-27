@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 
 import Field from './'
 
@@ -36,11 +36,50 @@ InjectedInput.displayName = 'InjectedInput'
 
 const onSave = (name, value) => alert(`Saving ${name}: "${value}"`)
 
+const theme = {
+  button: {
+    bg: {
+      color: {
+        disabled: 'LightGray',
+        default: 'MediumSeaGreen'
+      }
+    },
+    border: {
+      color: {
+        disabled: 'DarkGray',
+        default: 'MediumSeaGreen'
+      }
+    },
+    color: {
+      disabled: 'DarkGray',
+      default: 'White'
+    }
+  },
+  input: {
+    border: {
+      color: {
+        default: 'Gray'
+      }
+    },
+    color: {
+      default: 'Gray'
+    }
+  },
+  label: {
+    color: {
+      default: 'PaleVioletRed'
+    },
+    fontFamily: {
+      default: 'Didot'
+    }
+  }
+}
+
 storiesOf('Field', module)
   .add('with everything (logged)', () => (
     <Field
       defaultValue='Everything and log'
-      handleChange={console.log}
+      handleChange={console.log} // eslint-disable-line no-console
       labelText='Message'
       name='message'
       onSave={onSave}
@@ -183,4 +222,15 @@ storiesOf('Field', module)
       )}
       onSave={onSave}
     />
+  ))
+  .add('with everything themed', () => (
+    <ThemeProvider theme={theme}>
+      <Field
+        defaultValue='Everything and log'
+        handleChange={console.log} // eslint-disable-line no-console
+        labelText='Message'
+        name='message'
+        onSave={onSave}
+      />
+    </ThemeProvider>
   ))
