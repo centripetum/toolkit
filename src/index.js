@@ -1,1 +1,3 @@
-export { default as Field } from './Field'
+export {
+  default as SingleLineStringField
+} from './components/SingleLineStringField'

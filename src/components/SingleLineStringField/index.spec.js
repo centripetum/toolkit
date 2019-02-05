@@ -1,14 +1,14 @@
 import * as React from 'react'
 import { render } from 'react-testing-library'
 
-import Field from './'
+import SingleLineStringField from './'
 
-describe('Field', () => {
+describe('components:SingleLineStringField', () => {
   it('works', () => {
     const { container } = render(
-      <Field
+      <SingleLineStringField
         defaultValue='Everything and log'
-        labelText='Message'
+        label='Message'
         name='message'
         onSave={() => null}
       />
