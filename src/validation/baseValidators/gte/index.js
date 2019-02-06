@@ -1,17 +1,9 @@
-import { isFunction } from 'ramda-adjunct'
-import { Left, Right, gte } from 'sanctuary'
+import { Just, Left, Right, gte, isNothing } from 'sanctuary'
 
-function failMessage (name, value) {
-  return `${name} must be at least ${value}.`
-}
+import { NOT_GTE } from '../../errorTypes'
+import createError from '../../utilities/createError'
 
-export default function (name, n = Infinity, fail) {
-  const errorMessage = isFunction(fail) ? fail : failMessage
-
-  return value =>
-    isNaN(value)
-      ? Left([`${name} must be a number.`])
-      : gte(n)(value)
-      ? Right(value)
-      : Left([errorMessage(name, n)])
-}
+export default (testValue = Just(Infinity)) => value =>
+  isNothing(value) || gte(testValue)(value)
+    ? Right(value)
+    : Left(createError(NOT_GTE, value, testValue))

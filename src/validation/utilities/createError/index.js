@@ -1,7 +1,5 @@
-export default (name, validator, test, value, template) => ({
-  name,
-  validator,
-  test,
-  value,
-  template
+export default (errorType, value, testValue) => ({
+  errorType,
+  testValue,
+  value
 })

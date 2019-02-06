@@ -1,30 +1,87 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { show } from 'sanctuary'
+import { Just, Nothing, show } from 'sanctuary'
 
 import equalTo from './'
 
-storiesOf('validation/validators/equalTo', module)
-  .add('19 == 20?', () => (
-    <code>equalTo('Age', 19)(20) =&gt; {show(equalTo('Age', 19)(20))}</code>
-  ))
-  .add('20 == 20?', () => (
-    <code>equalTo('Age', 20)(20) =&gt; {show(equalTo('Age', 20)(20))}</code>
-  ))
-  .add('21 == 20?', () => (
-    <code>equalTo('Age', 20)(21) =&gt; {show(equalTo('Age', 20)(21))}</code>
-  ))
-  .add('Bob == bob?', () => (
+storiesOf('validation/baseValidators/equalTo', module)
+  .add('19 === 20?', () => (
     <code>
-      equalTo('Name', 'Bob')('bob') =&gt; {show(equalTo('Name', 'Bob')('bob'))}
+      equalTo(Just(20))(Just(19))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Left ({`{`}"errorType": "NOT_EQUAL_TO", "testValue": Just (20), "value":
+      Just (19){`}`})
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(equalTo(Just(20))(Just(19)))}
     </code>
   ))
-  .add('Bob == Bob?', () => (
+  .add('20 === 20?', () => (
     <code>
-      equalTo('Name', 'Bob')('Bob') =&gt; {show(equalTo('Name', 'Bob')('Bob'))}
+      equalTo(Just(20))(Just(20))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Right (Just (20))
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(equalTo(Just(20))(Just(20)))}
     </code>
   ))
-  .add('7 == "7"?', () => (
-    <code>equalTo('Age', 7)('7') =&gt; {show(equalTo('Age', 7)('7'))}</code>
+  .add('21 === 20?', () => (
+    <code>
+      equalTo(Just(20))(Just(21))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Left ({`{`}"errorType": "NOT_EQUAL_TO", "testValue": Just (20), "value":
+      Just (21){`}`})
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(equalTo(Just(20))(Just(21)))}
+    </code>
+  ))
+  .add('21 === undefined?', () => (
+    <code>
+      equalTo()(Just(21))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Left ({`{`}"errorType": "NOT_EQUAL_TO", "testValue": Nothing, "value":
+      Just (21)
+      {`}`})
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(equalTo()(Just(21)))}
+    </code>
+  ))
+  .add('Nothing === 20?', () => (
+    <code>
+      equalTo(Just(20))(Nothing)
+      <br />
+      <br />
+      Expected:
+      <br />
+      Right (Nothing)
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(equalTo(Just(20))(Nothing))}
+    </code>
   ))

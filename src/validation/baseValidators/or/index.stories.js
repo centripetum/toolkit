@@ -1,54 +1,106 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { show } from 'sanctuary'
-
-import gt from '../gt'
-import gte from '../gte'
-import lt from '../lt'
-import lte from '../lte'
+import { Just, Left, Right, show } from 'sanctuary'
 
 import or from './'
 
-storiesOf('validation/validators/or', module)
-  .add('Yes && Yes === Yes', () => (
+const increment = (() => {
+  let i = 0
+  return () => i++
+})()
+const success = () => Right(Just(1))
+const failure = () => Left({ error: `ERROR${increment()}` })
+
+storiesOf('validation/baseValidators/or', module)
+  .add('success OR success', () => (
     <code>
-      or(gt('n', 3), lte('n', 9))(5) === {show(or(gt('n', 3), lte('n', 9))(5))}
-    </code>
-  ))
-  .add('Yes && No === Yes', () => (
-    <code>
-      or(gt('n', 3), lte('n', 9))(10) ==={' '}
-      {show(or(gt('n', 3), lte('n', 9))(10))}
-    </code>
-  ))
-  .add('No && Yes === Yes', () => (
-    <code>
-      or(gte('n', 3), lte('n', 9))(1) ==={' '}
-      {show(or(gte('n', 3), lte('n', 9))(1))}
-    </code>
-  ))
-  .add('No && No === No', () => (
-    <code>
-      or(gt('n', 30), lt('n', 20))(25) ==={' '}
-      {show(or(gt('n', 30), lt('n', 20))(25))}
-    </code>
-  ))
-  .add('Duplicate errors', () => (
-    <code>
-      or(gt('n', 3), lte('n', 9))(NaN) ==={' '}
-      {show(or(gt('n', 3), lte('n', 9))(NaN))}
-    </code>
-  ))
-  .add('Multiple duplicate errors', () => (
-    <code>
-      gt('n', 30)(10) is ${show(gt('n', 30)(10))}
+      or(success, success)(Just(1))
       <br />
       <br />
-      lte('n', 9)(10) is ${show(lte('n', 9)(10))}
+      Expected:
+      <br />
+      Right (Just (1))
       <br />
       <br />
-      or(gt('n', 30), lte('n', 9), gt('n', 30), lte('n', 9))(10) ==={' '}
-      {show(or(gt('n', 30), lte('n', 9), gt('n', 30), lte('n', 9))(10))}
+      Actual:
+      <br />
+      {show(or(success, success)(Just(1)))}
+    </code>
+  ))
+  .add('success OR success OR success', () => (
+    <code>
+      or(success, success, success)(Just(1))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Right (Just (1))
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(or(success, success, success)(Just(1)))}
+    </code>
+  ))
+  .add('failure OR success', () => (
+    <code>
+      or(failure, success)(Just(1))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Right (Just (1))
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(or(failure, success)(Just(1)))}
+    </code>
+  ))
+  .add('success OR failure', () => (
+    <code>
+      or(success, failure)(Just(1))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Right (Just (1))
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(or(success, failure)(Just(1)))}
+    </code>
+  ))
+  .add('failure OR failure', () => (
+    <code>
+      or(failure, failure)(Just(1))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Left ([{`{`}"error": "ERROR*"{`}`}, {`{`}"error": "ERROR*"{`}`}])
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(or(failure, failure)(Just(1)))}
+    </code>
+  ))
+  .add('failure OR failure OR failure', () => (
+    <code>
+      or(failure, failure, failure)(Just(1))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Left ([{`{`}"error": "ERROR*"{`}`}, {`{`}"error": "ERROR*"{`}`}, {`{`}
+      "error": "ERROR*"{`}`}])
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(or(failure, failure, failure)(Just(1)))}
     </code>
   ))

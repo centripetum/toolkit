@@ -1,39 +1,11 @@
-import dayjs from 'dayjs'
-import {
-  Left,
-  Right,
-  equals,
-  isJust,
-  isNothing,
-  max,
-  maybeToNullable,
-  parseDate
-} from 'sanctuary'
+import { Left, Right, equals, isNothing, max, not } from 'sanctuary'
 
 import { END_OF_TIME } from '../../constants'
+import { NOT_AFTER_DATE_TIME } from '../../errorTypes'
+import createError from '../../utilities/createError'
 
-function makeDefaultError (name, value) {
-  return `${name} must be after ${value}.`
-}
-
-export default function (config = {}) {
-  const {
-    name = 'This field',
-    date = END_OF_TIME,
-    makeError = makeDefaultError,
-    dateFormat = 'D MMM YYYY'
-  } = config
-  const beforeDate = equals(typeof date)('string') ? parseDate(date) : date
-
-  return (value = '') => {
-    const dateToTest = equals(typeof value)('string') ? parseDate(value) : value
-
-    return isNothing(dateToTest)
-      ? Left([`${name} is not a valid date.`])
-      : equals(dateToTest)(max(beforeDate)(dateToTest))
-      ? Right(value)
-      : Left([
-          makeError(name, dayjs(maybeToNullable(beforeDate)).format(dateFormat))
-        ])
-  }
-}
+export default (testValue = END_OF_TIME) => value =>
+  isNothing(value) ||
+  (not(equals(testValue)(value)) && equals(value)(max(testValue)(value)))
+    ? Right(value)
+    : Left(createError(NOT_AFTER_DATE_TIME, value, testValue))

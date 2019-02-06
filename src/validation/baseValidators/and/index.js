@@ -1,26 +1,9 @@
-import {
-  Left,
-  Right,
-  equals,
-  filter,
-  head,
-  isLeft,
-  map,
-  maybeToNullable,
-  pipe,
-  prop,
-  show,
-  size
-} from 'sanctuary'
-
-import unique from '../../utilities/unique'
+import { Left, Nothing, Right, equals, lefts, map, pipe, size } from 'sanctuary'
 
 const isEmpty = pipe([size, equals(0)])
 
-export default (...funcs) => value => {
-  const errors = filter(isLeft)(map(f => f(value))(funcs))
+export default (...funcs) => (value = Nothing) => {
+  const errors = lefts(map(f => f(value))(funcs))
 
-  return isEmpty(errors)
-    ? Right(value)
-    : Left(unique(map(pipe([prop('value'), head, maybeToNullable]))(errors)))
+  return isEmpty(errors) ? Right(value) : Left(errors)
 }

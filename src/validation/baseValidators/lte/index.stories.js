@@ -1,36 +1,85 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { show } from 'sanctuary'
+import { Just, Nothing, show } from 'sanctuary'
 
 import lte from './'
 
-const message = (name, value) => `${name} can't be more than ${value}!`
-
-storiesOf('validation/validators/lte', module)
+storiesOf('validation/baseValidators/lte', module)
+  .add('11 <= 12?', () => (
+    <code>
+      lte(Just(12))(Just(11))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Right (Just (11))
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(lte(Just(12))(Just(11)))}
+    </code>
+  ))
   .add('12 <= 12?', () => (
     <code>
-      lte('Item count', 12)(12) =&gt; {show(lte('Item count', 12)(12))}
+      lte(Just(12))(Just(12))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Right (Just (12))
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(lte(Just(12))(Just(12)))}
     </code>
   ))
   .add('13 <= 12?', () => (
     <code>
-      lte('Item count', 12)(13) =&gt; {show(lte('Item count', 12)(13))}
-    </code>
-  ))
-  .add('14 <= 12?', () => (
-    <code>
-      const message = (name, value) =&gt; `${`{`}name{`}`} can't be more than $
-      {`{`}value
-      {`}`}!`
+      lte(Just(12))(Just(13))
       <br />
       <br />
-      lte('Item count', 12, message)(14) =&gt;{' '}
-      {show(lte('Item count', 12, message)(14))}
+      Expected:
+      <br />
+      Left ({`{`}"errorType": "NOT_LTE", "testValue": Just (12), "value": Just
+      (13){`}`})
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(lte(Just(12))(Just(13)))}
     </code>
   ))
-  .add('NaN <= 12?', () => (
+  .add('13 <= undefined?', () => (
     <code>
-      lte('Item count', 12)(NaN) =&gt; {show(lte('Item count', 12)(NaN))}
+      lte()(Just(13))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Left ({`{`}"errorType": "NOT_LTE", "testValue": Nothing, "value": Just
+      (13){`}`})
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(lte()(Just(13)))}
+    </code>
+  ))
+  .add('Nothing <= 12?', () => (
+    <code>
+      lte(Just(12))(Nothing)
+      <br />
+      <br />
+      Expected:
+      <br />
+      Right (Nothing)
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(lte(Just(12))(Nothing))}
     </code>
   ))

@@ -1,19 +1,27 @@
+import { Just, Nothing } from 'sanctuary'
+
 import wordCount from './'
 
 describe('validation:utilities:wordCount', () => {
   it(`handles punctuation`, () => {
-    expect(wordCount(" Here's a few. Punctuation marks, that is! ")).toBe(7)
+    expect(
+      wordCount(Just(" Here's a few. Punctuation marks, that is! "))
+    ).toEqual(Just(7))
   })
 
-  it(`returns the correct word count for a series of words`, () => {
-    expect(wordCount(' these are four words ')).toBe(4)
+  it(`returns Just(the correct word count) for Just(a series of words)`, () => {
+    expect(wordCount(Just(' these are four words '))).toEqual(Just(4))
   })
 
-  it(`returns a zero count for an empty string`, () => {
-    expect(wordCount('')).toBe(0)
+  it(`returns Just(0) for Just('')`, () => {
+    expect(wordCount(Just(''))).toEqual(Just(0))
   })
 
-  it(`returns a zero count for a falsy value`, () => {
-    expect(wordCount(undefined)).toBe(0)
+  it(`returns Nothing when Nothing received`, () => {
+    expect(wordCount(Nothing)).toEqual(Nothing)
+  })
+
+  it(`returns Nothing when undefined received`, () => {
+    expect(wordCount()).toEqual(Nothing)
   })
 })

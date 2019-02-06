@@ -1,12 +1,9 @@
-import { isFunction } from 'ramda-adjunct'
-import { Left, Right } from 'sanctuary'
+import { Left, Nothing, Right, equals, isNothing } from 'sanctuary'
 
-function failMessage (name, value) {
-  return `${name} must be equal to ${value}.`
-}
+import { NOT_EQUAL_TO } from '../../errorTypes'
+import createError from '../../utilities/createError'
 
-export default function (name, n = Infinity, fail) {
-  const errorMessage = isFunction(fail) ? fail : failMessage
-
-  return value => (n == value ? Right(value) : Left([errorMessage(name, n)]))
-}
+export default (testValue = Nothing) => value =>
+  isNothing(value) || equals(value)(testValue)
+    ? Right(value)
+    : Left(createError(NOT_EQUAL_TO, value, testValue))

@@ -1,40 +1,85 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { show } from 'sanctuary'
+import { Just, Nothing, show } from 'sanctuary'
 
 import notEqualTo from './'
 
-storiesOf('validation/validators/notEqualTo', module)
-  .add('19 != 20?', () => (
+storiesOf('validation/baseValidators/notEqualTo', module)
+  .add('19 !== 20?', () => (
     <code>
-      notEqualTo('Age', 19)(20) =&gt; {show(notEqualTo('Age', 19)(20))}
+      notEqualTo(Just(20))(Just(19))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Right (Just (19))
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(notEqualTo(Just(20))(Just(19)))}
     </code>
   ))
-  .add('20 != 20?', () => (
+  .add('20 !== 20?', () => (
     <code>
-      notEqualTo('Age', 20)(20) =&gt; {show(notEqualTo('Age', 20)(20))}
+      notEqualTo(Just(20))(Just(20))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Left ({`{`}"errorType": undefined, "testValue": Just (20), "value": Just
+      (20){`}`})
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(notEqualTo(Just(20))(Just(20)))}
     </code>
   ))
-  .add('21 != 20?', () => (
+  .add('21 !== 20?', () => (
     <code>
-      notEqualTo('Age', 20)(21) =&gt; {show(notEqualTo('Age', 20)(21))}
+      notEqualTo(Just(20))(Just(21))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Right (Just (21))
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(notEqualTo(Just(20))(Just(21)))}
     </code>
   ))
-  .add('Bob != bob?', () => (
+  .add('21 !== undefined?', () => (
     <code>
-      notEqualTo('Name', 'Bob')('bob') =&gt;{' '}
-      {show(notEqualTo('Name', 'Bob')('bob'))}
+      notEqualTo()(Just(21))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Right (Just (21))
+      {`}`})
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(notEqualTo()(Just(21)))}
     </code>
   ))
-  .add('Bob != Bob?', () => (
+  .add('Nothing !== 20?', () => (
     <code>
-      notEqualTo('Name', 'Bob')('Bob') =&gt;{' '}
-      {show(notEqualTo('Name', 'Bob')('Bob'))}
-    </code>
-  ))
-  .add('7 != "7"?', () => (
-    <code>
-      notEqualTo('Age', 7)('7') =&gt; {show(notEqualTo('Age', 7)('7'))}
+      notEqualTo(Just(20))(Nothing)
+      <br />
+      <br />
+      Expected:
+      <br />
+      Right (Nothing)
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(notEqualTo(Just(20))(Nothing))}
     </code>
   ))

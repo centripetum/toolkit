@@ -1,15 +1,21 @@
+import { Just, Nothing } from 'sanctuary'
+
 import charCount from './'
 
 describe('validation:utilities:charCount', () => {
-  it(`returns the correct character count for a string`, () => {
-    expect(charCount(' some characters ')).toBe(17)
+  it(`returns Just(the correct character count) for Just(a string)`, () => {
+    expect(charCount(Just(' some characters '))).toEqual(Just(17))
   })
 
-  it(`returns a zero count for an empty string`, () => {
-    expect(charCount('')).toBe(0)
+  it(`returns a Just(0) for Just('')`, () => {
+    expect(charCount(Just(''))).toEqual(Just(0))
   })
 
-  it(`returns a zero count for a falsy value`, () => {
-    expect(charCount(undefined)).toBe(0)
+  it(`returns Nothing when Nothing received`, () => {
+    expect(charCount(undefined)).toEqual(Nothing)
+  })
+
+  it(`returns Nothing when undefined received`, () => {
+    expect(charCount(undefined)).toEqual(Nothing)
   })
 })

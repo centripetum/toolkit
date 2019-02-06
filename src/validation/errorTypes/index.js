@@ -23,29 +23,13 @@ export const NOT_GT = 'NOT_GT'
 export const NOT_GTE = 'NOT_GTE'
 export const NOT_LT = 'NOT_LT'
 export const NOT_LTE = 'NOT_LTE'
-export const NOT_EQUAL = 'NOT_EQUAL'
-export const NOT_UNEQUAL = 'NOT_UNEQUAL'
-export const NOT_IDENTICAL = 'NOT_IDENTICAL'
-export const NOT_NON_IDENTICAL = 'NOT_NON_IDENTICAL'
-export const NOT_MATCHING = 'NOT_MATCHING'
+export const NOT_EQUAL_TO = 'NOT_EQUAL_TO'
+export const NOT_UNEQUAL_TO = 'NOT_UNEQUAL_TO'
+export const DOES_NOT_MATCH = 'DOES_NOT_MATCH'
 
 // Inclusion
 export const NOT_INCLUDED = 'NOT_INCLUDED'
 export const NOT_EXCLUDED = 'NOT_EXCLUDED'
-
-// Date
-export const NOT_AFTER_DATE = 'NOT_AFTER_DATE'
-export const NOT_BEFORE_DATE = 'NOT_BEFORE_DATE'
-export const NOT_ON_DATE = 'NOT_ON_DATE'
-export const NOT_ON_OR_AFTER_DATE = 'NOT_ON_OR_AFTER_DATE'
-export const NOT_ON_OR_BEFORE_DATE = 'NOT_ON_OR_BEFORE_DATE'
-
-// Time
-export const NOT_AFTER_TIME = 'NOT_AFTER_TIME'
-export const NOT_BEFORE_TIME = 'NOT_BEFORE_TIME'
-export const NOT_ON_TIME = 'NOT_ON_TIME'
-export const NOT_ON_OR_AFTER_TIME = 'NOT_ON_OR_AFTER_TIME'
-export const NOT_ON_OR_BEFORE_TIME = 'NOT_ON_OR_BEFORE_TIME'
 
 // DateTime
 export const NOT_AFTER_DATE_TIME = 'NOT_AFTER_DATE_TIME'
@@ -86,4 +70,4 @@ export const TOO_FEW_CHARACTERS = 'TOO_FEW_CHARACTERS'
 export const TOO_MANY_WORDS = 'TOO_MANY_WORDS'
 export const TOO_FEW_WORDS = 'TOO_FEW_WORDS'
 export const TOO_MANY_INSTANCES = 'TOO_MANY_INSTANCES' // regex
-export const NOT_ENOUGH_INSTANCES = 'NOT_ENOUGH_INSTANCES' // regex
+export const TOO_FEW_INSTANCES = 'NOT_ENOUGH_INSTANCES' // regex

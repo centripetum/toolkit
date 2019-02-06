@@ -1,17 +1,9 @@
-import { isFunction } from 'ramda-adjunct'
-import { Left, Right, lt } from 'sanctuary'
+import { Left, Nothing, Right, isNothing, lt } from 'sanctuary'
 
-function failMessage (name, value) {
-  return `${name} must be fewer than ${value}.`
-}
+import { NOT_LT } from '../../errorTypes'
+import createError from '../../utilities/createError'
 
-export default function (name, n = Infinity, fail) {
-  const errorMessage = isFunction(fail) ? fail : failMessage
-
-  return value =>
-    isNaN(value)
-      ? Left([`${name} must be a number.`])
-      : lt(n)(value)
-      ? Right(value)
-      : Left([errorMessage(name, n)])
-}
+export default (testValue = Nothing) => value =>
+  isNothing(value) || lt(testValue)(value)
+    ? Right(value)
+    : Left(createError(NOT_LT, value, testValue))

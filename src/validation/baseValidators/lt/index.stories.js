@@ -1,31 +1,86 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { show } from 'sanctuary'
+import { Just, Nothing, show } from 'sanctuary'
 
 import lt from './'
 
-const message = (name, value) => `${name} can't be ${value} or more!`
-
-storiesOf('validation/validators/lt', module)
+storiesOf('validation/baseValidators/lt', module)
   .add('11 < 12?', () => (
-    <code>lt('Item count', 12)(11) =&gt; {show(lt('Item count', 12)(11))}</code>
+    <code>
+      lt(Just(12))(Just(11))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Right (Just (11))
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(lt(Just(12))(Just(11)))}
+    </code>
   ))
   .add('12 < 12?', () => (
-    <code>lt('Item count', 12)(12) =&gt; {show(lt('Item count', 12)(12))}</code>
+    <code>
+      lt(Just(12))(Just(12))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Left ({`{`}"errorType": "NOT_LT", "testValue": Just (20), "value": Just
+      (20){`}`})
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(lt(Just(12))(Just(12)))}
+    </code>
   ))
   .add('13 < 12?', () => (
     <code>
-      const message = (name, value) =&gt; `${`{`}name{`}`} can't be ${`{`}value
-      {`}`} or more!`
+      lt(Just(12))(Just(13))
       <br />
       <br />
-      lt('Item count', 12, message)(13) =&gt;{' '}
-      {show(lt('Item count', 12, message)(13))}
+      Expected:
+      <br />
+      Left ({`{`}"errorType": "NOT_LT", "testValue": Just (12), "value": Just
+      (13){`}`})
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(lt(Just(12))(Just(13)))}
     </code>
   ))
-  .add('NaN < 12?', () => (
+  .add('13 < undefined?', () => (
     <code>
-      lt('Item count', 12)(NaN) =&gt; {show(lt('Item count', 12)(NaN))}
+      lt()(Just(13))
+      <br />
+      <br />
+      Expected:
+      <br />
+      Left ({`{`}"errorType": "NOT_LT", "testValue": Nothing, "value": Just (13)
+      {`}`})
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(lt()(Just(13)))}
+    </code>
+  ))
+  .add('Nothing < 12?', () => (
+    <code>
+      lt(Just(12))(Nothing)
+      <br />
+      <br />
+      Expected:
+      <br />
+      Right (Nothing)
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(lt(Just(12))(Nothing))}
     </code>
   ))
