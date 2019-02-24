@@ -76,7 +76,7 @@
     "prettier": "^1.15.3",
     "prettier-standard": "^9.1.1",
     "prop-types": "^15.6.2",
-    "react-testing-library": "^5.4.4",
+    "react-testing-library": "^6.0.0",
     "regenerator-runtime": "^0.13.1",
     "rimraf": "^2.6.3",
     "semantic-release": "^15.13.3",
