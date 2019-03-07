@@ -1,7 +1,7 @@
 # @centripetum/toolkit
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/centripetum/toolkit.svg)](https://greenkeeper.io/)
-[![npm package](https://img.shields.io/npm/v/cui-toolkit.svg)](https://www.npmjs.com/package/cui-toolkit)
+[![npm package](https://img.shields.io/npm/v/cui-toolkit.svg)](https://www.npmjs.com/package/@centripetum/toolkit)
 [![Build Status](https://img.shields.io/travis/centripetum/toolkit/master.svg?style=flat&logo=travis)](https://travis-ci.org/centripetum/toolkit)
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/centripetum/toolkit.svg?columns=all)](https://waffle.io/centripetum/toolkit)  
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
