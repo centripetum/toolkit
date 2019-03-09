@@ -4394,7 +4394,7 @@ debug@^4.0.0, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1:
   dependencies:
     ms "^2.1.1"
 
-debuglog@*, debuglog@^1.0.1:
+debuglog@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/debuglog/-/debuglog-1.0.1.tgz#aa24ffb9ac3df9a2351837cfb2d279360cd78492"
   integrity sha1-qiT/uaw9+aI1GDfPstJ5NgzXhJI=
@@ -6682,7 +6682,7 @@ import-sort@^6.0.0:
     is-builtin-module "^3.0.0"
     resolve "^1.8.1"
 
-imurmurhash@*, imurmurhash@^0.1.4:
+imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
   integrity sha1-khi5srkoojixPcT7a21XbyMUU+o=
@@ -8197,11 +8197,6 @@ lodash-es@^4.17.11:
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.11.tgz#145ab4a7ac5c5e52a3531fb4f310255a152b4be0"
   integrity sha512-DHb1ub+rMjjrxqlB3H56/6MXtm1lSksDp2rA2cNWjG8mlDUYFhUj3Di2Zn5IwSU87xLv8tNIQ7sSwE/YOX/D/Q==
 
-lodash._baseindexof@*:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/lodash._baseindexof/-/lodash._baseindexof-3.1.0.tgz#fe52b53a1c6761e42618d654e4a25789ed61822c"
-  integrity sha1-/lK1OhxnYeQmGNZU5KJXie1hgiw=
-
 lodash._baseuniq@~4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash._baseuniq/-/lodash._baseuniq-4.6.0.tgz#0ebb44e456814af7905c6212fa2c9b2d51b841e8"
@@ -8210,32 +8205,10 @@ lodash._baseuniq@~4.6.0:
     lodash._createset "~4.0.0"
     lodash._root "~3.0.0"
 
-lodash._bindcallback@*:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/lodash._bindcallback/-/lodash._bindcallback-3.0.1.tgz#e531c27644cf8b57a99e17ed95b35c748789392e"
-  integrity sha1-5THCdkTPi1epnhftlbNcdIeJOS4=
-
-lodash._cacheindexof@*:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/lodash._cacheindexof/-/lodash._cacheindexof-3.0.2.tgz#3dc69ac82498d2ee5e3ce56091bafd2adc7bde92"
-  integrity sha1-PcaayCSY0u5ePOVgkbr9Ktx73pI=
-
-lodash._createcache@*:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/lodash._createcache/-/lodash._createcache-3.1.2.tgz#56d6a064017625e79ebca6b8018e17440bdcf093"
-  integrity sha1-VtagZAF2JeeevKa4AY4XRAvc8JM=
-  dependencies:
-    lodash._getnative "^3.0.0"
-
 lodash._createset@~4.0.0:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/lodash._createset/-/lodash._createset-4.0.3.tgz#0f4659fbb09d75194fa9e2b88a6644d363c9fe26"
   integrity sha1-D0ZZ+7CddRlPqeK4imZE02PJ/iY=
-
-lodash._getnative@*, lodash._getnative@^3.0.0:
-  version "3.9.1"
-  resolved "https://registry.yarnpkg.com/lodash._getnative/-/lodash._getnative-3.9.1.tgz#570bc7dede46d61cdcde687d65d3eecbaa3aaff5"
-  integrity sha1-VwvH3t5G1hzc3mh9ZdPuy6o6r/U=
 
 lodash._reinterpolate@~3.0.0:
   version "3.0.0"
@@ -8301,11 +8274,6 @@ lodash.pick@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.pick/-/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
   integrity sha1-UvBWEP/53tQiYRRB7R/BI6AwAbM=
-
-lodash.restparam@*:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/lodash.restparam/-/lodash.restparam-3.6.1.tgz#936a4e309ef330a7645ed4145986c85ae5b20805"
-  integrity sha1-k2pOMJ7zMKdkXtQUWYbIWuWyCAU=
 
 lodash.set@^4.3.2:
   version "4.3.2"
@@ -11012,7 +10980,7 @@ readable-stream@~1.1.10:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
-readdir-scoped-modules@*, readdir-scoped-modules@^1.0.0:
+readdir-scoped-modules@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/readdir-scoped-modules/-/readdir-scoped-modules-1.0.2.tgz#9fafa37d286be5d92cbaebdee030dc9b5f406747"
   integrity sha1-n6+jfShr5dksuuve4DDcm19AZ0c=
@@ -11502,17 +11470,17 @@ safe-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-sanctuary-def@0.18.1:
-  version "0.18.1"
-  resolved "https://registry.yarnpkg.com/sanctuary-def/-/sanctuary-def-0.18.1.tgz#580af82a3fbbd651e8dddc0ab34b11727ef63b5f"
-  integrity sha512-Ltu/gU5ZskRln8NI6YJru5JbpkcMe4XqFx5zJMZysTKPmOVkETys5eVvZmclNLzPNrOIPvqBGJtD/D2q9yvP/A==
+sanctuary-def@0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/sanctuary-def/-/sanctuary-def-0.19.0.tgz#84dd038f723512168028654dd89563cbbf3a34af"
+  integrity sha512-1ZJX4LC3Kh4B9bnGGCN8qQS7GrHltLtibQnsaFqaoUpKIT4qCfUuCy/Beke352E948+lmquowyDfkMHtZ/0m3w==
   dependencies:
     sanctuary-either "1.0.x"
     sanctuary-show "1.0.x"
-    sanctuary-type-classes "9.0.x"
+    sanctuary-type-classes "10.0.x"
     sanctuary-type-identifiers "2.0.x"
 
-sanctuary-either@1.0.0, sanctuary-either@1.0.x:
+sanctuary-either@1.0.x:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/sanctuary-either/-/sanctuary-either-1.0.0.tgz#b6041e54c639700048be757ba4d6c026c2c2f67c"
   integrity sha512-j4WAlwILU83wawXJQCSh5kVK27gxOykMuCfUfUOba/qUcFE+FxwHkt7lnHVYDjt7jG9SENe8bTQzPH/Zmhy3Ag==
@@ -11520,28 +11488,43 @@ sanctuary-either@1.0.0, sanctuary-either@1.0.x:
     sanctuary-show "1.0.x"
     sanctuary-type-classes "9.0.0"
 
-sanctuary-maybe@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/sanctuary-maybe/-/sanctuary-maybe-1.0.0.tgz#03cd226d933ec89270e4495a965733390e843afc"
-  integrity sha512-4TUjIxznxTZ1dh8Zw4PRhaVkzY8KIZ4GGsOXBytOSV83MRRGkuz7wJHj3bfh2i9lOekbjf0Oal6v7IF6uDiYvg==
+sanctuary-either@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/sanctuary-either/-/sanctuary-either-1.1.0.tgz#9d45b344d870c16fc72f574feec1744dc50f4e1f"
+  integrity sha512-tQewdQTPKzuJGahV5iuILJM96I+AfIFn3vpi0s2FhHYENbRqO4JeFSWLNT1mJ9SupSJBopgWefWeUjq/ZKfdtg==
   dependencies:
     sanctuary-show "1.0.x"
-    sanctuary-type-classes "9.0.0"
+    sanctuary-type-classes "10.0.0"
 
-sanctuary-pair@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/sanctuary-pair/-/sanctuary-pair-1.0.0.tgz#eaf8121f0ba3064e5e0b09bb624bc3885209886a"
-  integrity sha512-fqXCO6boMLW7ZHrjc573u5maNdytIrNxeaotBBGrvbEVqiNeA6VH4eGARMLTCRdgOtW94aF5EUkBZCzvXLSujQ==
+sanctuary-maybe@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/sanctuary-maybe/-/sanctuary-maybe-1.1.0.tgz#b4b6807d949dc56fbc30834aebb925de1a05cddf"
+  integrity sha512-MwHsfddXxfn7Ywy9hiRIA/+lbJBUKeKI/cSHwTKkbLkelSBhSpBgZZI4giSZRwbP9OpxOpbkS+rFc//+HCVwdw==
   dependencies:
     sanctuary-show "1.0.x"
-    sanctuary-type-classes "9.0.0"
+    sanctuary-type-classes "10.0.0"
+
+sanctuary-pair@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/sanctuary-pair/-/sanctuary-pair-1.1.0.tgz#5a0d3d54ba2a1ebcd3a0bf3a2bc7c86c085a36ed"
+  integrity sha512-lr+lTHZCzKD3PAS8YHB0YhVLsKIRIzoeIg5SBWYquXgabVdVShOT+J+7E3cg4v+FOpgN1HWguYQcbJczCSEVyQ==
+  dependencies:
+    sanctuary-show "1.0.x"
+    sanctuary-type-classes "10.0.0"
 
 sanctuary-show@1.0.0, sanctuary-show@1.0.x:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/sanctuary-show/-/sanctuary-show-1.0.0.tgz#72deb4812f9decec850e03286807dca1c97a1d61"
   integrity sha512-63UqNGr5M6wkzKp6eGc/Gy6JBIV2PbzPd3q88+0F9z0qydAQsCWJ+7e4oor39rEEwj2GkZMDEhqGuiMl9eEnYw==
 
-sanctuary-type-classes@9.0.0, sanctuary-type-classes@9.0.x:
+sanctuary-type-classes@10.0.0, sanctuary-type-classes@10.0.x:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/sanctuary-type-classes/-/sanctuary-type-classes-10.0.0.tgz#25126f009348101dbe627c7b7efb7c6f63f792b1"
+  integrity sha512-h5Q1VkW/CmVbmoWDf6HdsgJbx5gc3n6R5lRzzKRssYSkghmqEuAr+0ThJs/bqJK8aiQwh3N2PXP4ZppYEDlSdg==
+  dependencies:
+    sanctuary-type-identifiers "2.0.1"
+
+sanctuary-type-classes@9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/sanctuary-type-classes/-/sanctuary-type-classes-9.0.0.tgz#b44741ca67fa650cbd314e1ad318d730ce1309a4"
   integrity sha512-rFW27f3D622kxKravpGU9OjWn66fnDjDjGPvoYo4hEoBg2ocypvp0R9cs0YovKL3jTO+PTceUBh5tYZ+l9ay3g==
@@ -11558,17 +11541,17 @@ sanctuary-type-identifiers@2.0.1, sanctuary-type-identifiers@2.0.x:
   resolved "https://registry.yarnpkg.com/sanctuary-type-identifiers/-/sanctuary-type-identifiers-2.0.1.tgz#fc524cf6dd92cebfcbb0dd9509eff193159a20ed"
   integrity sha1-/FJM9t2Szr/LsN2VCe/xkxWaIO0=
 
-sanctuary@^0.15.1:
-  version "0.15.1"
-  resolved "https://registry.yarnpkg.com/sanctuary/-/sanctuary-0.15.1.tgz#c5f0efdc28f8698af63615ae02b052fa902def22"
-  integrity sha512-guMq+RqXcABprELHRJJF0iHaqb1ErUkbyYN5KviAeQ2OM3WvaDz1GoKWQyj+lHUrprbMXCiJjrk3QVfiSeAERg==
+sanctuary@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/sanctuary/-/sanctuary-1.0.0.tgz#ecddfd453290b4e269fdc4bb8314e3c25febc79d"
+  integrity sha512-H+C80DadljM0gyWe5Y3R8bDIDW8MU8/XBg0h0V2zwusmljRAVrBQshd6XU3zFxk+lHj04e9xoUvBscRfl8vO8g==
   dependencies:
-    sanctuary-def "0.18.1"
-    sanctuary-either "1.0.0"
-    sanctuary-maybe "1.0.0"
-    sanctuary-pair "1.0.0"
+    sanctuary-def "0.19.0"
+    sanctuary-either "1.1.0"
+    sanctuary-maybe "1.1.0"
+    sanctuary-pair "1.1.0"
     sanctuary-show "1.0.0"
-    sanctuary-type-classes "9.0.0"
+    sanctuary-type-classes "10.0.0"
     sanctuary-type-identifiers "2.0.1"
 
 sane@^4.0.3:
