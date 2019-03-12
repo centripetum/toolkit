@@ -72,7 +72,6 @@ function PasswordField ({
       <Button onClick={toggleShowPassword} showing={showPassword}>
         {showPassword ? 'Hide' : 'Show'}
       </Button>
-      <span>{dirty ? (valid ? 'Valid!' : 'ERROR!!') : ''}</span>
     </div>
   )
 }
