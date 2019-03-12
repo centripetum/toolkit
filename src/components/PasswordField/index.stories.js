@@ -16,5 +16,6 @@ storiesOf('components/PasswordField', module).add('Basic component', () => (
     label={label}
     onChange={console.log}
     validate={pipe([prop('length'), gt(10)])}
+    placeholder='Fill me in'
   />
 ))

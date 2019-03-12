@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { identity, not } from 'ramda'
+import { isNilOrEmpty } from 'ramda-adjunct'
 import styled from 'styled-components'
 
 const { useEffect, useState } = React
@@ -35,6 +36,14 @@ const Button = styled.button`
 `
 Button.displayName = 'PasswordFieldButton'
 
+function getLabel (id, label) {
+  if (isNilOrEmpty(label)) {
+    return null
+  }
+
+  return <Label htmlFor={id}>{label}</Label>
+}
+
 function PasswordField ({
   defaultShow,
   defaultValue = '',
@@ -42,6 +51,7 @@ function PasswordField ({
   label,
   name,
   onChange,
+  placeholder,
   validate = identity
 }) {
   const [value, setValue] = useState(defaultValue)
@@ -60,7 +70,7 @@ function PasswordField ({
 
   return (
     <div>
-      <Label htmlFor={id}>{label}</Label>
+      {getLabel(id, label)}
       <Input
         type={showPassword ? 'text' : 'password'}
         name={name}
@@ -68,6 +78,7 @@ function PasswordField ({
         value={value}
         onChange={handleChange}
         showing={showPassword}
+        placeholder={placeholder}
       />
       <Button onClick={toggleShowPassword} showing={showPassword}>
         {showPassword ? 'Hide' : 'Show'}
