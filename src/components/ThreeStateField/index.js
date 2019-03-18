@@ -4,14 +4,15 @@ import styled from 'styled-components'
 
 const { useEffect, useState } = React
 
-function ThreeStateField () {
+const handleChange = ({ target = {} }) => {
+  console.log('changed')
+}
+
+function ThreeStateField ({ name }) {
   return (
     <div>
       Yes
-      <input type='checkbox' />
-      <br />
-      No
-      <input type='checkbox' />
+      <input name={name} type='checkbox' onChange={handleChange} />
     </div>
   )
 }
