@@ -13,13 +13,13 @@ const handleChange = ({ target = {} }) => {
   }
 }
 
-function ThreeStateField () {
+function ThreeStateField ({ field1, field2 }) {
   return (
     <div>
-      Yes
+      {field1}
       <input id='box1' type='checkbox' onChange={handleChange} />
       <br />
-      No
+      {field2}
       <input id='box2' type='checkbox' onChange={handleChange} />
     </div>
   )
