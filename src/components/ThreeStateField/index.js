@@ -11,10 +11,11 @@ function ThreeStateField ({
   validate = identity
 }) {
   var [value, setValue] = useState(defaultValue)
-  var [valid, setValid] = useState(true)
+  const [valid, setValid] = useState(true)
 
   const handleChange = ({ target = {} }) => {
     if (target.id === 'box1') {
+      value = true
       if (document.getElementById('box2').checked) {
         document.getElementById('box2').checked = false
         value = true
@@ -33,8 +34,9 @@ function ThreeStateField ({
         value = null
       }
     }
-    setValue(target.value)
-    setValid(validate(target.value))
+    console.log(value)
+    setValue(value)
+    setValid(validate(value))
   }
 
   return (
