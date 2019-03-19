@@ -8,5 +8,5 @@ const name = 'Toggle'
 const label = 'Toggle'
 
 storiesOf('components/Toggle', module).add('Basic component', () => (
-  <Toggle id={id} name={name} label={label} />
+  <Toggle id={id} name={name} label={label} onChange={console.log} />
 ))

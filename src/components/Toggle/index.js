@@ -1,21 +1,66 @@
 import * as React from 'react'
 
-import useFieldState from '../../hooks/useFieldState'
-import Button from '../styled/Button'
-import Label from '../styled/Label'
+import { identity, not } from 'ramda'
+import { isNilOrEmpty } from 'ramda-adjunct'
+import styled from 'styled-components'
 
-export default function Toggle (props) {
-  const { defaultValue, handleChange, label, name } = props
+const { useEffect, useState } = React
 
-  const { onClick } = useFieldState({
-    defaultValue,
-    handleChange
-  })
+const Label = styled.label`
+  padding: 0.2rem;
+  font-size: 1rem;
+  font-family: sans-serif;
+  margin: 0 0.2rem;
+`
+Label.displayName = 'ToggleLabel'
+
+const Button = styled.button`
+  border: 1px solid gray;
+  border-color: ${({ showing }) => (showing ? 'green' : 'red')};
+  border-radius: 0.2rem;
+  padding: 0.2rem;
+  font-size: 1rem;
+  font-family: sans-serif;
+  margin: 0 0.2rem;
+  color: ${({ showing }) => (showing ? 'green' : 'red')};
+`
+Button.displayName = 'Toggle'
+
+function getLabel (id, label) {
+  if (isNilOrEmpty(label)) {
+    return null
+  }
+
+  return <Label htmlFor={id}>{label}</Label>
+}
+
+export default function Toggle ({
+  defaultValue = false,
+  id,
+  label,
+  name,
+  onChange,
+  validate = identity
+}) {
+  const [value, setValue] = useState(defaultValue)
+  const [valid, setValid] = useState(true)
+  const [dirty, setDirty] = useState(false)
+
+  const handleChange = ({ target = {} }) => {
+    setValue(target.value)
+    setValid(validate(target.value))
+    setDirty(true)
+  }
+  const toggle = () => setValue(not(value))
+
+  useEffect(() => onChange(name, value, validate(value)), [value])
 
   return (
     <div>
-      <Label htmlFor={name}>{label}</Label>
-      <Button onClick={onClick}>Toggle Me</Button>
+      {getLabel(id, label)}
+      <Button id={id} name={name} onClick={toggle} onChange={handleChange}>
+        {value ? 'Yes' : 'No'}
+      </Button>
     </div>
   )
 }
