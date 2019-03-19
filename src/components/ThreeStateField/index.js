@@ -1,26 +1,49 @@
 import * as React from 'react'
 
-const handleChange = ({ target = {} }) => {
-  if (target.id === 'box1') {
-    if (document.getElementById('box2').checked) {
-      document.getElementById('box2').checked = false
-    }
-  }
-  if (target.id === 'box2') {
-    if (document.getElementById('box1').checked) {
-      document.getElementById('box1').checked = false
-    }
-  }
-}
+import { identity } from 'ramda'
 
-function ThreeStateField ({ field1, field2 }) {
+const { useState } = React
+
+function ThreeStateField ({
+  field1,
+  field2,
+  defaultValue = null,
+  validate = identity
+}) {
+  var [value, setValue] = useState(defaultValue)
+  var [valid, setValid] = useState(true)
+
+  const handleChange = ({ target = {} }) => {
+    if (target.id === 'box1') {
+      if (document.getElementById('box2').checked) {
+        document.getElementById('box2').checked = false
+        value = true
+      } else if (document.getElementById('box1').checked) {
+        value = true
+      } else {
+        value = null
+      }
+    } else if (target.id === 'box2') {
+      if (document.getElementById('box1').checked) {
+        document.getElementById('box1').checked = false
+        value = false
+      } else if (document.getElementById('box2').checked) {
+        value = false
+      } else {
+        value = null
+      }
+    }
+    setValue(target.value)
+    setValid(validate(target.value))
+  }
+
   return (
     <div>
       {field1}
-      <input id='box1' type='checkbox' onChange={handleChange} />
+      <input id='box1' type='checkbox' value={value} onChange={handleChange} />
       <br />
       {field2}
-      <input id='box2' type='checkbox' onChange={handleChange} />
+      <input id='box2' type='checkbox' value={value} onChange={handleChange} />
     </div>
   )
 }
