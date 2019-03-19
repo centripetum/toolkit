@@ -43,14 +43,7 @@ export default function Toggle ({
   validate = identity
 }) {
   const [value, setValue] = useState(defaultValue)
-  const [valid, setValid] = useState(true)
-  const [dirty, setDirty] = useState(false)
 
-  const handleChange = ({ target = {} }) => {
-    setValue(target.value)
-    setValid(validate(target.value))
-    setDirty(true)
-  }
   const toggle = () => setValue(not(value))
 
   useEffect(() => onChange(name, value, validate(value)), [value])
@@ -58,7 +51,7 @@ export default function Toggle ({
   return (
     <div>
       {getLabel(id, label)}
-      <Button id={id} name={name} onClick={toggle} onChange={handleChange}>
+      <Button id={id} name={name} onClick={toggle}>
         {value ? 'Yes' : 'No'}
       </Button>
     </div>
