@@ -14,21 +14,21 @@ function ThreeStateField ({
   const [valid, setValid] = useState(true)
 
   const handleChange = ({ target = {} }) => {
-    if (target.id === 'box1') {
+    if (target.id === 'trueBox') {
       value = true
-      if (document.getElementById('box2').checked) {
-        document.getElementById('box2').checked = false
+      if (document.getElementById('falseBox').checked) {
+        document.getElementById('falseBox').checked = false
         value = true
-      } else if (document.getElementById('box1').checked) {
+      } else if (document.getElementById('trueBox').checked) {
         value = true
       } else {
         value = null
       }
-    } else if (target.id === 'box2') {
-      if (document.getElementById('box1').checked) {
-        document.getElementById('box1').checked = false
+    } else if (target.id === 'falseBox') {
+      if (document.getElementById('trueBox').checked) {
+        document.getElementById('trueBox').checked = false
         value = false
-      } else if (document.getElementById('box2').checked) {
+      } else if (document.getElementById('falseBox').checked) {
         value = false
       } else {
         value = null
@@ -41,10 +41,20 @@ function ThreeStateField ({
   return (
     <div>
       {trueField}
-      <input id='box1' type='checkbox' value={value} onChange={handleChange} />
+      <input
+        id='trueBox'
+        type='checkbox'
+        value={value}
+        onChange={handleChange}
+      />
       <br />
       {falseField}
-      <input id='box2' type='checkbox' value={value} onChange={handleChange} />
+      <input
+        id='falseBox'
+        type='checkbox'
+        value={value}
+        onChange={handleChange}
+      />
     </div>
   )
 }
