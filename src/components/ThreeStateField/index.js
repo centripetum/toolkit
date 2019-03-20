@@ -5,8 +5,8 @@ import { identity } from 'ramda'
 const { useState } = React
 
 function ThreeStateField ({
-  field1,
-  field2,
+  trueField,
+  falseField,
   defaultValue = null,
   validate = identity
 }) {
@@ -34,17 +34,16 @@ function ThreeStateField ({
         value = null
       }
     }
-    console.log(value)
     setValue(value)
     setValid(validate(value))
   }
 
   return (
     <div>
-      {field1}
+      {trueField}
       <input id='box1' type='checkbox' value={value} onChange={handleChange} />
       <br />
-      {field2}
+      {falseField}
       <input id='box2' type='checkbox' value={value} onChange={handleChange} />
     </div>
   )
