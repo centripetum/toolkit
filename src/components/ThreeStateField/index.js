@@ -4,37 +4,34 @@ import { identity } from 'ramda'
 
 const { useState } = React
 
-function ThreeStateField ({
-  trueField,
-  falseField,
-  defaultValue = null,
-  validate = identity
-}) {
-  var [value, setValue] = useState(defaultValue)
+function ThreeStateField ({ trueField, falseField, validate = identity }) {
+  const [value, setValue] = useState(null)
   const [valid, setValid] = useState(true)
+
+  const [trueBoxValue, setTrueBoxValue] = useState(false)
+  const [falseBoxValue, setFalseBoxValue] = useState(false)
 
   const handleChange = ({ target = {} }) => {
     if (target.id === 'trueBox') {
-      value = true
-      if (document.getElementById('falseBox').checked) {
-        document.getElementById('falseBox').checked = false
-        value = true
-      } else if (document.getElementById('trueBox').checked) {
-        value = true
-      } else {
-        value = null
+      setTrueBoxValue(!trueBoxValue)
+      if (falseBoxValue) {
+        setFalseBoxValue(!falseBoxValue)
       }
     } else if (target.id === 'falseBox') {
-      if (document.getElementById('trueBox').checked) {
-        document.getElementById('trueBox').checked = false
-        value = false
-      } else if (document.getElementById('falseBox').checked) {
-        value = false
-      } else {
-        value = null
+      setFalseBoxValue(!falseBoxValue)
+      if (trueBoxValue) {
+        setTrueBoxValue(!trueBoxValue)
       }
     }
-    setValue(value)
+
+    if (trueBoxValue) {
+      setValue(true)
+    } else if (falseBoxValue) {
+      setValue(false)
+    } else {
+      setValue(null)
+    }
+
     setValid(validate(value))
   }
 
@@ -44,6 +41,7 @@ function ThreeStateField ({
       <input
         id='trueBox'
         type='checkbox'
+        checked={trueBoxValue}
         value={value}
         onChange={handleChange}
       />
@@ -53,10 +51,10 @@ function ThreeStateField ({
         id='falseBox'
         type='checkbox'
         value={value}
+        checked={falseBoxValue}
         onChange={handleChange}
       />
     </div>
   )
 }
-
 export default ThreeStateField
