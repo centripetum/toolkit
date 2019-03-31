@@ -1,6 +1,5 @@
 import { REDO, UNDO } from '../constants'
-
-import { isEmpty } from 'ramda'
+import isEmpty from '../../../utils/isEmpty'
 
 export default function getUndoRedo (state, dispatch, disabled) {
   if (disabled) {

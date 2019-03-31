@@ -1,5 +1,6 @@
-import { head, isNil, prepend, tail } from 'ramda'
+import { head, prepend, tail, maybeToNullable } from 'sanctuary'
 
+import isNil from '../../../utils/isNil'
 import { CLEAR, REDO, RESET, UNDO, UPDATE } from '../constants'
 
 function handleClear ({ undo, value }) {
@@ -9,7 +10,7 @@ function handleClear ({ undo, value }) {
 
   return {
     value: '',
-    undo: prepend(value, undo)
+    undo: prepend(value)(undo)
   }
 }
 
@@ -19,9 +20,9 @@ function handleRedo ({ redo, undo, value }) {
   }
 
   return {
-    undo: prepend(value, undo),
-    redo: tail(redo),
-    value: head(redo)
+    undo: prepend(value)(undo),
+    redo: maybeToNullable(tail(redo)),
+    value: maybeToNullable(head(redo))
   }
 }
 
@@ -43,7 +44,7 @@ function handleUpdate ({ undo, value }, newValue) {
   }
 
   return {
-    undo: prepend(value, undo),
+    undo: prepend(value)(undo),
     value: newValue
   }
 }
@@ -54,9 +55,9 @@ function handleUndo ({ redo, undo, value }) {
   }
 
   return {
-    undo: tail(undo),
-    redo: prepend(value, redo),
-    value: head(undo)
+    undo: maybeToNullable(tail(undo)),
+    redo: prepend(value)(redo),
+    value: maybeToNullable(head(undo))
   }
 }
 
