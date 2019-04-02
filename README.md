@@ -3,7 +3,6 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/centripetum/toolkit.svg)](https://greenkeeper.io/)
 [![npm package](https://img.shields.io/npm/v/cui-toolkit.svg)](https://www.npmjs.com/package/@centripetum/toolkit)
 [![Build Status](https://img.shields.io/travis/centripetum/toolkit/master.svg?style=flat&logo=travis)](https://travis-ci.org/centripetum/toolkit)
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/centripetum/toolkit.svg?columns=all)](https://waffle.io/centripetum/toolkit)  
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
 [![devDependenciesStatus](https://david-dm.org/centripetum/toolkit/dev-status.svg)](https://david-dm.org/centripetum/toolkit?type=dev)
