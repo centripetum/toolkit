@@ -31,7 +31,6 @@ function ThreeStateField ({ trueField, falseField, validate = identity }) {
     } else {
       setValue(null)
     }
-
     setValid(validate(value))
   }
 

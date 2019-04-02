@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: ThreeStateField renders a three state field 1`] = `
+<div>
+  <div>
+    True
+    <input
+      id="trueBox"
+      type="checkbox"
+      value=""
+    />
+    <br />
+    False
+    <input
+      id="falseBox"
+      type="checkbox"
+      value=""
+    />
+  </div>
+</div>
+`;
