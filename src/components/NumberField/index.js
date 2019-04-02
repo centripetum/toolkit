@@ -23,15 +23,23 @@ const Input = styled.input`
 Input.displayName = 'NumberFieldInput'
 
 function NumberField ({
-  defaultShow,
   defaultValue = '',
   id,
   label,
   name,
   onChange,
-  placeholder
+  validator = () => true,
+  min = -Infinity,
+  max = Infinity,
+  warningColour = 'red',
+  warningText = 'Not a valid number',
+  maxDecimal = Infinity
 }) {
   const [value, setValue] = useState(defaultValue)
+  //list is the permitted list of chars
+  const [list, setList] = useState('0123456789.+-/eE')
+  const [valid, setValid] = useState(true)
+
   const handleChange = ({ target = {} }) => {
     setValue(target.value)
   }
