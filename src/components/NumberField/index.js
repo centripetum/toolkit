@@ -22,12 +22,21 @@ const Input = styled.input`
 `
 Input.displayName = 'NumberFieldInput'
 
+function getLabel (id, label) {
+  if (isNilOrEmpty(label)) {
+    return null
+  }
+
+  return <Label htmlFor={id}>{label}</Label>
+}
+
 function NumberField ({
   defaultValue = '',
   id,
   label,
   name,
   onChange,
+  placeholder,
   validator = () => true,
   min = -Infinity,
   max = Infinity,
@@ -41,9 +50,27 @@ function NumberField ({
   const [valid, setValid] = useState(true)
 
   const handleChange = ({ target = {} }) => {
-    setValue(target.value)
+    var lastchar = target.value.substr(-1)
+    console.log('lastchar:' + lastchar)
+    if (list.includes(lastchar)) {
+      setValue(target.value)
+      console.log('value set to:' + target.value)
+    }
   }
-  return <div />
+
+  return (
+    <div>
+      {getLabel(id, label)}
+      <Input
+        //type={showPassword ? 'text' : 'password'}
+        name={name}
+        id={id}
+        value={value}
+        onChange={handleChange}
+        placeholder={placeholder}
+      />
+    </div>
+  )
 }
 
 export default NumberField

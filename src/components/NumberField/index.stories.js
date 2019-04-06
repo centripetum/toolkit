@@ -10,7 +10,7 @@ const name = 'number'
 const label = 'Number'
 
 storiesOf('components/NumberField', module).add('Basic component', () => (
-  <PasswordField
+  <NumberField
     id={id}
     name={name}
     label={label}
