@@ -37,9 +37,6 @@ const toolkit = {
     libraryTarget: 'umd',
     library: 'centripetal-toolkit',
   },
-  externals: {
-    ramda: 'ramda',
-  },
   module: {
     rules: [
       {
@@ -80,9 +77,6 @@ const toolkitMin = Object.assign(
       filename: 'centripetal-toolkit.node.min.js',
       libraryTarget: 'umd',
       library: 'centripetal-toolkit',
-    },
-    externals: {
-      ramda: 'ramda',
     },
     module: {
       rules: [
@@ -125,9 +119,6 @@ const toolkitWeb = {
     filename: 'centripetal-toolkit.web.js',
     libraryTarget: 'umd',
     library: 'centripetal-toolkit',
-  },
-  externals: {
-    ramda: 'R',
   },
   module: {
     rules: [
@@ -174,9 +165,6 @@ const toolkitWebMin = Object.assign(
       filename: 'centripetal-toolkit.web.min.js',
       libraryTarget: 'umd',
       library: 'centripetal-toolkit',
-    },
-    externals: {
-      ramda: 'R',
     },
     module: {
       rules: [

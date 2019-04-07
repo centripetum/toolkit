@@ -1,11 +1,11 @@
 import * as React from 'react'
-
-import { isEmpty, not } from 'ramda'
+import { not } from 'sanctuary'
 
 import useFieldState from '../../hooks/useFieldState'
 import Button from '../styled/Button'
 import Input from '../styled/Input'
 import Label from '../styled/Label'
+import isEmpty from '../../utils/isEmpty'
 
 export default function Field (props) {
   const {
