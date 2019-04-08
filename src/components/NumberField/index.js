@@ -62,7 +62,6 @@ function NumberField ({
     <div>
       {getLabel(id, label)}
       <Input
-        //type={showPassword ? 'text' : 'password'}
         name={name}
         id={id}
         value={value}

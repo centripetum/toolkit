@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { gt, pipe, prop } from 'sanctuary'
+import { pipe, prop } from 'sanctuary'
 
 import NumberField from './'
 
@@ -15,7 +15,6 @@ storiesOf('components/NumberField', module).add('Basic component', () => (
     name={name}
     label={label}
     onChange={console.log}
-    validate={pipe([prop('length'), gt(10)])}
-    placeholder='Fill me in'
+    validate={pipe([prop('length')])}
   />
 ))
