@@ -11,19 +11,18 @@ const Label = styled.label`
   font-size: 1rem;
   font-family: sans-serif;
   margin: 0 0.2rem;
-  pointer-events: none;
 `
 Label.displayName = 'ToggleLabel'
 
 const Button = styled.button`
   border: 1px solid gray;
-  border-color: ${({ showing }) => (showing ? 'green' : 'red')};
+  border-color: red;
   border-radius: 0.2rem;
   padding: 0.2rem;
   font-size: 1rem;
   font-family: sans-serif;
   margin: 0 0.2rem;
-  color: ${({ showing }) => (showing ? 'green' : 'red')};
+  color: red;
 `
 Button.displayName = 'Toggle'
 
@@ -41,7 +40,11 @@ export default function Toggle ({
   label,
   name,
   onChange,
-  validate = identity
+  validate = identity,
+  onText = 'Yes',
+  offText = 'No',
+  onImage,
+  offImage
 }) {
   const [value, setValue] = useState(defaultValue)
 
@@ -52,8 +55,14 @@ export default function Toggle ({
   return (
     <div>
       {getLabel(id, label)}
-      <Button id={id} name={name} onClick={toggle}>
-        {value ? 'Yes' : 'No'}
+      <Button
+        id={id}
+        name={name}
+        onClick={toggle}
+        style={onImage && offImage && { border: 0 }}
+      >
+        {value ? onText : offText}
+        {onImage && offImage && <img src={value ? onImage : offImage} />}
       </Button>
     </div>
   )
