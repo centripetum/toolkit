@@ -1,25 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components:Toggle Toggle is being created properly 1`] = `
-<div>
-  <div>
-    <label
-      class="sc-bdVaJa kWttCM"
-      for="Toggle"
-    >
-      Toggle
-    </label>
-    <button
-      class="sc-bwzfXH dRdGGI"
-      id="Toggle"
-      name="Toggle"
-    >
-      No
-    </button>
-  </div>
-</div>
-`;
-
 exports[`components:Toggle Toggle is being created properly with default False value 1`] = `
 <div>
   <div>

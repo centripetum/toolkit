@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render } from 'react-testing-library'
+import { render, fireEvent } from 'react-testing-library'
 
 import Toggle from './'
 
@@ -41,4 +41,20 @@ describe('components:Toggle', () => {
 
       expect(container).toMatchSnapshot()
     })
+  it('Changes the state of the toggle when it is clicked', () => {
+    const { container } = render(
+      <Toggle
+        id='Toggle'
+        name='Toggle'
+        label={null}
+        onChange={() => undefined}
+      />
+    )
+
+    const toggle = container.firstChild
+    const toggleButton = toggle.firstChild
+    expect(toggle.textContent).toBe('No')
+    fireEvent.click(toggleButton)
+    expect(toggle.textContent).toBe('Yes')
+  })
 })
