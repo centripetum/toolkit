@@ -49,9 +49,9 @@ export default function Toggle ({
   useEffect(() => onChange(name, value, validate(value)), [value])
 
   return (
-    <div>
+    <div onClick={toggle}>
       {getLabel(id, label)}
-      <Button id={id} name={name} onClick={toggle}>
+      <Button id={id} name={name}>
         {value ? 'Yes' : 'No'}
       </Button>
     </div>

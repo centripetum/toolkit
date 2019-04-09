@@ -52,9 +52,8 @@ describe('components:Toggle', () => {
     )
 
     const toggle = container.firstChild
-    const toggleButton = toggle.firstChild
     expect(toggle.textContent).toBe('No')
-    fireEvent.click(toggleButton)
+    fireEvent.click(toggle)
     expect(toggle.textContent).toBe('Yes')
   })
 })
