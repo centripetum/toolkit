@@ -4,7 +4,7 @@ exports[`components:Toggle Toggle is being created properly with default False v
 <div>
   <div>
     <label
-      class="sc-bdVaJa kWttCM"
+      class="sc-bdVaJa dMsKTk"
       for="Toggle"
     >
       Toggle
@@ -24,7 +24,7 @@ exports[`components:Toggle Toggle is being created properly with initial True va
 <div>
   <div>
     <label
-      class="sc-bdVaJa kWttCM"
+      class="sc-bdVaJa dMsKTk"
       for="Toggle"
     >
       Toggle

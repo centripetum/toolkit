@@ -11,6 +11,7 @@ const Label = styled.label`
   font-size: 1rem;
   font-family: sans-serif;
   margin: 0 0.2rem;
+  pointer-events: none;
 `
 Label.displayName = 'ToggleLabel'
 
@@ -49,9 +50,9 @@ export default function Toggle ({
   useEffect(() => onChange(name, value, validate(value)), [value])
 
   return (
-    <div onClick={toggle}>
+    <div>
       {getLabel(id, label)}
-      <Button id={id} name={name}>
+      <Button id={id} name={name} onClick={toggle}>
         {value ? 'Yes' : 'No'}
       </Button>
     </div>
