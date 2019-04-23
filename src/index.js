@@ -1,3 +1,1 @@
-export {
-  default as SingleLineStringField
-} from './components/SingleLineStringField'
+export { default as PasswordField } from './components/PasswordField'
