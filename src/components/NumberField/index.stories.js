@@ -15,6 +15,6 @@ storiesOf('components/NumberField', module).add('Basic component', () => (
     name={name}
     label={label}
     onChange={console.log}
-    validate={pipe([prop('length')])}
+    validate={''}
   />
 ))
