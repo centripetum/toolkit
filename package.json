@@ -82,7 +82,7 @@
     "prettier": "^1.16.4",
     "prettier-standard": "^9.1.1",
     "prop-types": "^15.7.2",
-    "react-testing-library": "^6.0.0",
+    "react-testing-library": "^8.0.0",
     "regenerator-runtime": "^0.13.1",
     "rimraf": "^2.6.3",
     "sanctuary": "^1.0.0",
