@@ -86,7 +86,7 @@
     "regenerator-runtime": "^0.13.1",
     "rimraf": "^2.6.3",
     "sanctuary": "^1.0.0",
-    "semantic-release": "^15.13.3",
+    "semantic-release": "^15.13.19",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack-cli": "^3.2.3"
   },
