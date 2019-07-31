@@ -87,7 +87,7 @@
     "rimraf": "^2.6.3",
     "sanctuary": "^1.0.0",
     "semantic-release": "^15.13.3",
-    "uglifyjs-webpack-plugin": "^2.1.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack-cli": "^3.2.3"
   },
   "homepage": "https://github.com/centripetum/toolkit",
