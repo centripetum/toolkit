@@ -10576,10 +10576,10 @@ qw@~1.0.1:
   resolved "https://registry.yarnpkg.com/qw/-/qw-1.0.1.tgz#efbfdc740f9ad054304426acb183412cc8b996d4"
   integrity sha1-77/cdA+a0FQwRCassYNBLMi5ltQ=
 
-ramda-adjunct@^2.16.1:
-  version "2.16.1"
-  resolved "https://registry.yarnpkg.com/ramda-adjunct/-/ramda-adjunct-2.16.1.tgz#19af36ed58bc1b7bc90c16c4d814bbd5f16ce64c"
-  integrity sha512-0fvgqMLpRbXrDq2V/FhR1m0gEDCO2ANANXBBbhQrZYYHDLfJUDuLAiuE2fnbjM5HkCaFbL7MfATkafkyxp2AAw==
+ramda-adjunct@^2.26.0:
+  version "2.26.0"
+  resolved "https://registry.yarnpkg.com/ramda-adjunct/-/ramda-adjunct-2.26.0.tgz#c74d75afdc0b70c89356b814d85138602f0e3a9c"
+  integrity sha512-E0gVB89iY36X0sNHq0MUhLRzAh0YrKHA0cBKCZma4n1+Y672KrOREXpef89ayW7YhREbb6enMfSBXrkjPt9thA==
 
 ramda@^0.21.0:
   version "0.21.0"
