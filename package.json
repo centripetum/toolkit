@@ -30,7 +30,7 @@
   },
   "browserslist": "> 0.25%, ie 10, ie 11, not op_mini all",
   "dependencies": {
-    "dayjs": "^1.8.8",
+    "dayjs": "^1.8.28",
     "ramda": "^0.26.1",
     "ramda-adjunct": "^2.16.1",
     "react": "^16.8.3",
